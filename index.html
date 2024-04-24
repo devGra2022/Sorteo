@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+
+    <title>Cheque de Sorteo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.6.0/dist/gsap.min.js"></script>
+</head>
+
+<body>
+    <canvas id="fireworksCanvas" data-image-url="2.jpg"></canvas>
+
+    <div class="campo" id="beneficiario"><span>------- -------- -------- -------</span></div>
+
+    <button id="launchFireworksButton" style="z-index: 1; opacity: 0">Lanzar Fuegos Artificiales</button>
+    <div id="drawWinnerButtonContainer">
+        <button id="drawWinnerButton" style="z-index: 1; opacity: 1">Sortear Ganador</button>
+    </div>
+    <!-- Contenedor del formulario CSV con botón para alternar visibilidad -->
+    <div id="csvFormContainer" style="position: fixed; bottom: 10px; left: 10px; display: block;">
+        <button id="toggleCsvFormButton">Mostrar/Ocultar Opciones</button>
+        <div id="csvForm" style="display: none;">
+            <input type="file" id="csvFileInput" accept=".csv">
+            <button id="loadCsvButton">Cargar Archivo CSV</button>
+            <input type="file" id="backgroundImageInput" accept="image/*">
+            <button id="loadImageButton">Cargar Imagen de Fondo</button>
+        </div>
+    </div>
+
+    <audio id="drumroll" src="drum-roll-please-6386.mp3"></audio>
+    <script src="fireworks.js"></script>
+
+    <!-- Scripts para modificar el cheque -->
+    <script type="module" src="renderer.js"></script>
+    <script>
+        gsap.from('#beneficiario span', { duration: 1, x: -100, opacity: 0 });
+
+        // Agregar efecto de pulsación al botón 'Sortear Ganador'
+        gsap.to('#drawWinnerButton', {
+            scale: 1.1, // Aumenta ligeramente el tamaño para la animación
+            duration: 0.5, // Duración de medio segundo
+            ease: 'Power1.easeInOut', // Suavizado de la animación
+            yoyo: true, // Volver al estado original después de animar
+            repeat: -1, // Repetir la animación indefinidamente
+            repeatDelay: 3 // Tiempo de espera antes de repetir la animación
+        });
+
+    </script>
+</body>
+
+</html>

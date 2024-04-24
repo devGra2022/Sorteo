@@ -1,0 +1,51 @@
+{
+	"name": "sorteo",
+	"version": "1.0.0",
+	"description": "Sorteo para la Nieve",
+	"main": "main.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "electron-forge start",
+		"package": "electron-forge package",
+		"make": "electron-forge make",
+		"electron-builder": "electron-builder build"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@electron-forge/cli": "^7.4.0",
+		"@electron-forge/maker-deb": "^7.4.0",
+		"@electron-forge/maker-rpm": "^7.4.0",
+		"@electron-forge/maker-squirrel": "^7.4.0",
+		"@electron-forge/maker-zip": "^7.4.0",
+		"@electron-forge/plugin-auto-unpack-natives": "^7.4.0",
+		"@electron-forge/plugin-fuses": "^7.4.0",
+		"@electron/fuses": "^1.8.0",
+		"electron": "^30.0.1",
+		"electron-builder": "^24.13.3"
+	},
+	"dependencies": {
+		"csv-parser": "^3.0.0",
+		"electron-squirrel-startup": "^1.0.0",
+		"electron-updater": "^6.1.8"
+	},
+	"build": {
+		"appId": "co.lanieve.sorteo",
+		"productName": "Sorteo",
+		"mac": {
+			"category": "public.app-category.utilities"
+		},
+		"win": {
+			"target": "NSIS",
+			"icon": "icono.ico"
+		},
+		"linux": {
+			"target": [
+				"AppImage",
+				"deb"
+			],
+			"icon": "icono.png"
+		}
+	}
+}
