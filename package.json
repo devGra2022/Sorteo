@@ -61,6 +61,15 @@
 			"target": "NSIS",
 			"icon": "icono.ico"
 		},
+		"nsis": {
+			"oneClick": false,
+			"allowElevation": true,
+			"allowToChangeInstallationDirectory": true,
+			"createDesktopShortcut": true,
+			"createStartMenuShortcut": true,
+			"shortcutName": "Sorteos La Nieve",
+			"include": "installer.nsh"
+		},
 		"linux": {
 			"target": [
 				"AppImage",
