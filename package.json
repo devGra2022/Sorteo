@@ -1,6 +1,6 @@
 {
 	"name": "sorteo",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Sorteo para la Nieve",
 	"main": "main.js",
 	"scripts": {
@@ -8,7 +8,9 @@
 		"start": "electron-forge start",
 		"package": "electron-forge package",
 		"make": "electron-forge make",
-		"electron-builder": "electron-builder build"
+		"electron-builder": "electron-builder build",
+		"pack": "electron-builder --dir",
+		"dist": "electron-builder"
 	},
 	"keywords": [],
 	"author": "",
@@ -33,6 +35,25 @@
 	"build": {
 		"appId": "co.lanieve.sorteo",
 		"productName": "Sorteo",
+		"directories": {
+			"output": "dist"
+		},
+		"files": [
+			"**/*",
+			"!**/*.md",
+			"!**/*.{o,h}",
+			"!**/._*",
+			"!**/electron-builder.*",
+			"!**/*.yml",
+			"!**/*.sh"
+		],
+		"publish": [
+			{
+				"provider": "github",
+				"repo": "Sorteo",
+				"owner": "devGra2022"
+			}
+		],
 		"mac": {
 			"category": "public.app-category.utilities"
 		},
